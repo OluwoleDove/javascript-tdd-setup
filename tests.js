@@ -3,22 +3,57 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-var lib = require('./lib/library.js');
+var lib = require('./lib/sum_of_primes.js');
 
-describe("Test that constants are computed properly", function() {
-  it("should give 10, 4 for constants 2, 5 as a and n respectively", function() {
+describe("Test that argument is a positive integer", function() {
+  it("should give Invalid input if N is negative", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(2, 5), { a: 10, n: 4 })
+      lib.sumOfPrimes(-20) == "Invalid input")
     );
   });
-  it("should give 2, 1 for constants 1, 2 as a and n respectively", function() {
+  it("Test that argument is a number", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(1, 2), { a: 2, n: 1 })
+      lib.sumOfPrimes("a") == "Argument not a number"
     );
   });
-  it("should give 8, 1 for constants 4, 2 as a and n respectively", function() {
+  it("should test that number is not float", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(4, 2), { a: 8, n: 1 })
+      lib.sumOfPrimes(5.82) == "Number not an integer"
+    );
+  });
+  it("should return invalid parameters for arguments more than one", function() {
+    assert(
+      lib.sumOfPrimes(5, 4) == "Invalid parameters"
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(5) == 10
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(15) == 31
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(20) == 77
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(25) == 100
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(39) == 197
+    );
+  });
+  it("should give 10, if number is 5", function() {
+    assert(
+      lib.sumOfPrimes(51) == 328
     );
   });
 });
