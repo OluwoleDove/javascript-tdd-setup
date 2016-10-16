@@ -8,7 +8,7 @@ var lib = require('./lib/sum_of_primes.js');
 describe("Test that argument is a positive integer", function() {
   it("should give Invalid input if N is negative", function() {
     assert(
-      lib.sumOfPrimes(-33) == "Invalid input")
+      lib.sumOfPrimes(-33) == "Invalid argument")
     
   });
   it("it should give an error for a string input", function() {
@@ -33,7 +33,7 @@ describe("Test that argument is a positive integer", function() {
   });
   it("should give 31, if number is 15", function() {
     assert(
-      lib.sumOfPrimes(15) == 31
+      lib.sumOfPrimes(15) == 41
     );
   });
   it("should give 77, if number is 20", function() {
