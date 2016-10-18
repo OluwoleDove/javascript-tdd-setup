@@ -1,59 +1,28 @@
-'use strict'
 
 var chai = require('chai');
-var assert = chai.assert;
+var expect = chai.assert;
+var search;
+var lib = require('./lib/class_oop.js');
 
-var lib = require('./lib/sum_of_primes.js');
+'use strict';
+  describe("findCriminal class, finds a criminal location", function() {
 
-describe("Test that argument is a positive integer", function() {
-  it("should give Invalid input if N is negative", function() {
-    assert(
-      lib.sumOfPrimes(-33) == "Invalid argument")
-    
-  });
-  it("it should give an error for a string input", function() {
-    assert(
-      lib.sumOfPrimes("a") == "Number is not an integer"
-    );
-  });
-  it("should test that number is not float", function() {
-    assert(
-      lib.sumOfPrimes(7.93) == "Number is not an integer"
-    );
-  });
-  it("should return invalid parameter if argument is more than one", function() {
-    assert(
-      lib.sumOfPrimes(5, 4) == "Arguments more than one"
-    );
-  });
-  it("should give invalid argument for an array input", function() {
-    assert(
-      lib.sumOfPrimes([1,2,3,4,5,9]) == "Number is not an integer"
-    );
-  });
-  it("should give 31, if number is 15", function() {
-    assert(
-      lib.sumOfPrimes(15) == 41
-    );
-  });
-  it("should give 77, if number is 20", function() {
-    assert(
-      lib.sumOfPrimes(20) == 77
-    );
-  });
-  it("should give 100, if number is 25", function() {
-    assert(
-      lib.sumOfPrimes(25) == 100
-    );
-  });
-  it("should give 197, if number is 39", function() {
-    assert(
-      lib.sumOfPrimes(39) == 197
-    );
-  });
-  it("should give 328, if number is 51", function() {
-    assert(
-      lib.sumOfPrimes(51) == 328
-    );
-  });
+    it("The planet should be a type of `string`, and must be Earth", function() {
+      search = new findCriminal('Earth');
+      expect(typeof planet).toEqual(typeof "");
+      expect(planet instanceof findCriminal).toBeTruthy();
+    });
+
+    it("The search should be called 'Unknown' if coordinates are not numbers", function() {
+      expect(search.latitude).toEqual('Unknown');
+      expect(search.longitude).toBe('Unknown');
+    });
+
+    it("Action should be Prepare for war if planet = Alien zone", function() {
+      expect(search.Action).toBe('Prepare for war');
+    });
+    it("Action should be Continue search if planet = Earth", function() {
+      expect(search.Action).toBe('Continue search');
+    });
+
 });
